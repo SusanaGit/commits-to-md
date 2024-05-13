@@ -1,3 +1,4 @@
+import json
 import subprocess
 
 
@@ -12,3 +13,10 @@ def datos():
 def creacion_archivo_json():
     subprocess.run(["curl", "-s", f"https://api.github.com/repos/{usuario_git}/{repositorio_git}/commits", "-o",
         nombre_archivo_json])
+
+def creacion_diccionario_commits():
+    with open(nombre_archivo_json, 'r') as objeto_archivo_abierto_json:
+        # cargamos el contenido del archivo abierto json al diccionario_commits_obtenidos
+        diccionario_commits_obtenidos = json.load(objeto_archivo_abierto_json)
+        return diccionario_commits_obtenidos
+
