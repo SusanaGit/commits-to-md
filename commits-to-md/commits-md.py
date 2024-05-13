@@ -33,3 +33,8 @@ def creacion_archivo_md(diccionario_commits_obtenidos):
             objeto_archivo_abierto_md.write("### ["+titulo_commit+"]" + "("+url_commit+")")
             objeto_archivo_abierto_md.write("\n")
 
+def ejecucion():
+    datos()
+    creacion_archivo_json()
+    diccionario_commits_obtenidos = creacion_diccionario_commits()
+    creacion_archivo_md(diccionario_commits_obtenidos)
