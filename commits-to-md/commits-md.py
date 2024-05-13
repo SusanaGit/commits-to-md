@@ -1,3 +1,5 @@
+import subprocess
+
 
 def datos():
     global titulo, usuario_git, repositorio_git, nombre_archivo_json, nombre_archivo_md
@@ -6,3 +8,7 @@ def datos():
     repositorio_git = input("Introduce el repositorio del que quieres obtener los commits: ")
     nombre_archivo_json = "commits_" + repositorio_git + ".json"
     nombre_archivo_md = "commits_" + repositorio_git + ".md"
+
+def creacion_archivo_json():
+    subprocess.run(["curl", "-s", f"https://api.github.com/repos/{usuario_git}/{repositorio_git}/commits", "-o",
+        nombre_archivo_json])
