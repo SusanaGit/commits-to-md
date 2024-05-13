@@ -38,3 +38,6 @@ def ejecucion():
     creacion_archivo_json()
     diccionario_commits_obtenidos = creacion_diccionario_commits()
     creacion_archivo_md(diccionario_commits_obtenidos)
+
+# ejecuto el programa
+ejecucion()
