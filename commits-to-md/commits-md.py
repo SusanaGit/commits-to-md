@@ -20,3 +20,16 @@ def creacion_diccionario_commits():
         diccionario_commits_obtenidos = json.load(objeto_archivo_abierto_json)
         return diccionario_commits_obtenidos
 
+def creacion_archivo_md(diccionario_commits_obtenidos):
+    with open(nombre_archivo_md, 'w') as objeto_archivo_abierto_md:
+
+        # título del .md
+        objeto_archivo_abierto_md.write("# " + titulo + "\n")
+
+        # escribimos cada commit del diccionario en el archivo md
+        for commit in reversed(diccionario_commits_obtenidos):
+            titulo_commit = f"{commit['commit']['message']}"
+            url_commit = f"https://github.com/{usuario_git}/{repositorio_git}/commit/{commit['sha']}"
+            objeto_archivo_abierto_md.write("### ["+titulo_commit+"]" + "("+url_commit+")")
+            objeto_archivo_abierto_md.write("\n")
+
